@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="sick_ahh_farming_game.InventoryPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#FFF4C7">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <Label
+            Grid.Row="0"
+            Text="Inventory"
+            FontSize="32"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="0,20,0,10" />
+
+        <Grid
+            Grid.Row="1"
+            Padding="25"
+            RowSpacing="15"
+            ColumnSpacing="15">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="2"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="0"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="2"
+                Grid.Column="0"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+            <Border
+                Grid.Row="2"
+                Grid.Column="2"
+                BackgroundColor="#F5E6B8"
+                Stroke="#8C6B4A"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 15" />
+
+        </Grid>
+
+        <Border
+            Grid.Row="2"
+            BackgroundColor="#F5F0E8"
+            Stroke="#5C3B32"
+            StrokeThickness="2"
+            Padding="8">
+
+            <Grid ColumnDefinitions="*,*,*,*">
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="0"
+                    Text="🌱"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="FarmButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="1"
+                    Text="🌾"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="InventoryButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="2"
+                    Text="🎒"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="ShopButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="3"
+                    Text="🐱"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="AccountButton_Clicked" />
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</ContentPage>
