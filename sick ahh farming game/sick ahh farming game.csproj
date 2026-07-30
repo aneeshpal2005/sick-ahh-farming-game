@@ -67,25 +67,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\InventoryPage.xaml.cs">
+	  <Compile Update="InventoryPage.xaml.cs">
 	    <DependentUpon>InventoryPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\AccountPage.xaml.cs">
+	  <Compile Update="AccountPage.xaml.cs">
 	    <DependentUpon>AccountPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ShopPage.xaml.cs">
+	  <Compile Update="ShopPage.xaml.cs">
 	    <DependentUpon>ShopPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\InventoryPage.xaml">
+	  <MauiXaml Update="InventoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AccountPage.xaml">
+	  <MauiXaml Update="AccountPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ShopPage.xaml">
+	  <MauiXaml Update="ShopPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
