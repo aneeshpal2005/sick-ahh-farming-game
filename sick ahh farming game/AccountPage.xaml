@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="sick_ahh_farming_game.AccountPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#FFF4C7">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <ScrollView Grid.Row="0">
+
+            <VerticalStackLayout
+                Padding="30"
+                Spacing="20">
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Label
+                    Text="🐱"
+                    FontSize="90"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Player Account"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Border
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="20">
+
+                    <VerticalStackLayout Spacing="12">
+
+                        <Label
+                            Text="Username"
+                            FontSize="16"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Player"
+                            FontSize="20" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="20">
+
+                    <VerticalStackLayout Spacing="12">
+
+                        <Label
+                            Text="Farm Stats"
+                            FontSize="20"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Plants Harvested: 0"
+                            FontSize="16" />
+
+                        <Label
+                            Text="Seeds Owned: 5"
+                            FontSize="16" />
+
+                        <Label
+                            Text="Coins: 0"
+                            FontSize="16" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Button
+                    Text="Save Game"
+                    BackgroundColor="#8C6B4A"
+                    TextColor="White"
+                    CornerRadius="15"
+                    HeightRequest="50" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+        <Border
+            Grid.Row="1"
+            BackgroundColor="#F5F0E8"
+            Stroke="#5C3B32"
+            StrokeThickness="2"
+            Padding="8">
+
+            <Grid ColumnDefinitions="*,*,*,*">
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="0"
+                    Text="🌱"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="FarmButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="1"
+                    Text="🌾"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="InventoryButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="2"
+                    Text="🎒"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="ShopButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="3"
+                    Text="🐱"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="AccountButton_Clicked" />
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</ContentPage>

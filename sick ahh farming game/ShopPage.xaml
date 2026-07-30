@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="sick_ahh_farming_game.ShopPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#FFF4C7">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <Label
+            Grid.Row="0"
+            Text="Seed Shop"
+            FontSize="32"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="0,20,0,10" />
+
+        <ScrollView Grid.Row="1">
+
+            <Grid
+                Padding="25"
+                RowSpacing="15"
+                ColumnSpacing="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="15"
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                        <Label
+                            Text="🌱"
+                            FontSize="45"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="Seed 1"
+                            FontSize="20"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="5 G"
+                            FontSize="16"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="15"
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                        <Label
+                            Text="🌻"
+                            FontSize="45"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="Seed 2"
+                            FontSize="20"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="10 G"
+                            FontSize="16"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="15"
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                        <Label
+                            Text="🌷"
+                            FontSize="45"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="Seed 3"
+                            FontSize="20"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="15 G"
+                            FontSize="16"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="15"
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                        <Label
+                            Text="🌾"
+                            FontSize="45"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="Seed 4"
+                            FontSize="20"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="20 G"
+                            FontSize="16"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Padding="15"
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                        <Label
+                            Text="🌼"
+                            FontSize="45"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="Seed 5"
+                            FontSize="20"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="25 G"
+                            FontSize="16"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Padding="15"
+                    BackgroundColor="#F5E6B8"
+                    Stroke="#8C6B4A"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 15">
+
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                        <Label
+                            Text="🌿"
+                            FontSize="45"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="Seed 6"
+                            FontSize="20"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            Text="30 G"
+                            FontSize="16"
+                            HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </Grid>
+
+        </ScrollView>
+
+        <Border
+            Grid.Row="2"
+            BackgroundColor="#F5F0E8"
+            Stroke="#5C3B32"
+            StrokeThickness="2"
+            Padding="8">
+
+            <Grid ColumnDefinitions="*,*,*,*">
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="0"
+                    Text="🌱"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="FarmButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="1"
+                    Text="🌾"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="InventoryButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="2"
+                    Text="🎒"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="ShopButton_Clicked" />
+
+                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
+                <Button
+                    Grid.Column="3"
+                    Text="🐱"
+                    FontSize="28"
+                    BackgroundColor="Transparent"
+                    Clicked="AccountButton_Clicked" />
+
+            </Grid>
+
+
+        </Border>
+
+    </Grid>
+
+</ContentPage>

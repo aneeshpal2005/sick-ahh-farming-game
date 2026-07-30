@@ -1,8 +1,8 @@
-﻿namespace sick_ahh_farming_game;
+namespace sick_ahh_farming_game;
 
-public partial class MainPage : ContentPage
+public partial class InventoryPage : ContentPage
 {
-    public MainPage()
+    public InventoryPage()
     {
         InitializeComponent();
     }
