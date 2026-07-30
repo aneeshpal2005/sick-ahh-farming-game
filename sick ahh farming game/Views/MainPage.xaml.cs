@@ -26,4 +26,11 @@ public partial class MainPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(AccountPage));
     }
+
+
+
+    private async void PlotButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
