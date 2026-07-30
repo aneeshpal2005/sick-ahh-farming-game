@@ -44,23 +44,26 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 15">
 
+                    <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CarrotSeed_Tapped"/>
+                    </Border.GestureRecognizers>
+
                     <VerticalStackLayout Spacing="8">
 
-                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                        <Label
-                            Text="🌱"
-                            FontSize="45"
-                            HorizontalOptions="Center" />
+                                <Label
+                    Text="🥕"
+                    FontSize="45"
+                    HorizontalOptions="Center" />
 
-                        <Label
-                            Text="Seed 1"
-                            FontSize="20"
-                            HorizontalOptions="Center" />
+                                <Label
+                    Text="Carrot"
+                    FontSize="20"
+                    HorizontalOptions="Center" />
 
-                        <Label
-                            Text="5 G"
-                            FontSize="16"
-                            HorizontalOptions="Center" />
+                    <Label
+                    Text="5 G"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
 
                     </VerticalStackLayout>
 

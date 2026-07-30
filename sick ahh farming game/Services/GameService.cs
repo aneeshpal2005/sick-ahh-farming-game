@@ -14,7 +14,7 @@ namespace sick_ahh_farming_game.Services
         private SQLiteAsyncConnection _database = null!;
         private bool _initialized;
         private readonly SemaphoreSlim _initLock = new(1, 1);
-
+        public int SelectedPlotId { get; set; }
         public async Task InitializeAsync()
         {
             if (_initialized) return;
@@ -32,6 +32,9 @@ namespace sick_ahh_farming_game.Services
                 await _database.CreateTableAsync<Plot>();
                 await _database.CreateTableAsync<InventoryItem>();
                 await _database.CreateTableAsync<PlayerStat>();
+                await SeedDefaultsAsync();
+                await EnsurePlotsAsync();
+                await EnsurePlayerAsync();
 
 
                 _initialized = true;
@@ -47,17 +50,23 @@ namespace sick_ahh_farming_game.Services
 
             var seeds = new List<Seed>
             {
-                // Add type of seeds here 
-                //
-                // new()
-                // {
-                //     Name = "",
-                //     Emoji = "",
-                //     Cost = 0,
-                //     SellValue = 0,
-                //     GrowthDurationSeconds = 0
-                // }
+                new()
+                {
+                    Name = "Carrot",
+                    Emoji = "🥕",
+                    Cost = 5,
+                    SellValue = 10,
+                    GrowthDurationSeconds = 30
+                },
 
+                new()
+                {
+                    Name = "Corn",
+                    Emoji = "🌽",
+                    Cost = 10,
+                    SellValue = 20,
+                    GrowthDurationSeconds = 60
+                }
             };
 
             await _database.InsertAllAsync(seeds);
@@ -225,6 +234,23 @@ namespace sick_ahh_farming_game.Services
             await InitializeAsync();
         }
 
+        public async Task<(bool IsEmpty, bool CanHarvest, string Message)> CheckPlotAsync(int plotId)
+        {
+            await InitializeAsync();
+            var plot = await _database.Table<Plot>().Where(p => p.Id == plotId).FirstOrDefaultAsync();
+            if (plot == null)
+                return (true, false, "Plot not found.");
+            if (!plot.SeedId.HasValue)
+                return (true, false, "Plot is empty.");
+            var seed = await GetSeedAsync(plot.SeedId.Value);
+            if (seed == null)
+                return (false, false, "Unknown crop.");
+            var readyAt = plot.PlantedTime!.Value.AddSeconds(seed.GrowthDurationSeconds);
+            if (DateTime.UtcNow >= readyAt)
+                return (false, true, $"Crop {seed.Name} is ready to harvest!");
+            var timeLeft = readyAt - DateTime.UtcNow;
+            return (false, false, $"Crop {seed.Name} is growing. Time left: {timeLeft:mm\\:ss}");
 
+        }
     }
 }

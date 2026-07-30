@@ -11,7 +11,7 @@
 
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="20,10">
             <Label
-                Text="My Farm"
+                Text="Testing Farm"
                 FontSize="28"
                 FontAttributes="Bold"
                 TextColor="#5C3B32"
@@ -27,7 +27,7 @@
 
         <VerticalStackLayout Grid.Row="1" Spacing="5" Padding="20,0">
             <Label
-                Text="Tap a seed, then tap an empty plot to plant."
+                Text="Click a plot to interact with it."
                 FontSize="14"
                 TextColor="#5C3B32"
                 HorizontalOptions="Center" />
@@ -55,100 +55,123 @@
                 </Grid.ColumnDefinitions>
 
                 <Button x:Name="Plot1"
+                        AutomationId="Plot1"
                         Grid.Row="0" 
                         Grid.Column="0" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
+
                 <Button x:Name="Plot2"
+                        AutomationId="Plot2"
                         Grid.Row="0" 
                         Grid.Column="1" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
+
                 <Button x:Name="Plot3"
+                        AutomationId="Plot3"
                         Grid.Row="0" 
                         Grid.Column="2" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
                 <Button x:Name="Plot4"
+                        AutomationId="Plot4"
                         Grid.Row="1" 
                         Grid.Column="0" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
-                <Button x:Name="Plot5"
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
+    
+                <Button x:Name="Plot5" 
+                        AutomationId="Plot5"
                         Grid.Row="1" 
                         Grid.Column="1" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
+                        FontSize="24" 
+                         Clicked="PlotButton_Clicked"/>
+
                 <Button x:Name="Plot6"
+                        AutomationId="Plot6"
                         Grid.Row="1" 
                         Grid.Column="2" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
+                        FontSize="24"
+                        Clicked="PlotButton_Clicked"/>
+
                 <Button x:Name="Plot7"
+                        AutomationId="Plot7"
                         Grid.Row="2" 
                         Grid.Column="0" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
-                
+                        FontSize="24"
+                        Clicked="PlotButton_Clicked"/>
+                    
                 <Button x:Name="Plot8"
+                        AutomationId="Plot8"
                         Grid.Row="2" 
                         Grid.Column="1" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
                 
                 <Button x:Name="Plot9"
+                        AutomationId="Plot9"
                         Grid.Row="2" 
                         Grid.Column="2" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
+                        FontSize="24"
+                        Clicked="PlotButton_Clicked"/>
                 
                 <Button x:Name="Plot10"
+                        AutomationId="Plot10"
                         Grid.Row="3" 
                         Grid.Column="0" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
                 
                 <Button x:Name="Plot11"
+                        AutomationId="Plot11"
                         Grid.Row="3" 
                         Grid.Column="1" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
+                        FontSize="24" 
+                        Clicked="PlotButton_Clicked"/>
                 
                 <Button x:Name="Plot12" 
+                        AutomationId="Plot12"
                         Grid.Row="3" 
                         Grid.Column="2" 
                         Text="" 
                         BackgroundColor="#B86C3C" 
                         CornerRadius="25" 
-                        FontSize="24" />
+                        FontSize="24"
+                        Clicked="PlotButton_Clicked"/>
             
             </Grid>
         </ScrollView>

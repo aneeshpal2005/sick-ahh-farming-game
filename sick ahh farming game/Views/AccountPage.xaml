@@ -64,14 +64,17 @@
                             FontAttributes="Bold" />
 
                         <Label
+                            x:Name="HarvestedLabel"
                             Text="Plants Harvested: 0"
                             FontSize="16" />
 
-                        <Label
-                            Text="Seeds Owned: 5"
+                                                <Label
+                            x:Name="SeedsLabel"
+                            Text="Seeds Owned: 0"
                             FontSize="16" />
 
-                        <Label
+                                                <Label
+                            x:Name="CoinsLabel"
                             Text="Coins: 0"
                             FontSize="16" />
 
