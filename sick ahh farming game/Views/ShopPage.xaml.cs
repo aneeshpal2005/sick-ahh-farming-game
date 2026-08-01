@@ -1,7 +1,12 @@
+
+using sick_ahh_farming_game.Services;
+
 namespace sick_ahh_farming_game;
 
 public partial class ShopPage : ContentPage
 {
+    private readonly GameService _gameService = GameManager.GameService;
+
     public ShopPage()
     {
         InitializeComponent();
@@ -25,5 +30,15 @@ public partial class ShopPage : ContentPage
     private async void AccountButton_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(AccountPage));
+    }
+
+    private async void CarrotSeed_Tapped(object sender, TappedEventArgs e)
+    {
+        var result = await _gameService.BuySeedAsync(1);
+
+        await DisplayAlert(
+            result.Success ? "Success" : "Error",
+            result.Message,
+            "OK");
     }
 }
