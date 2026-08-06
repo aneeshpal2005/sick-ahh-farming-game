@@ -31,10 +31,59 @@ public partial class ShopPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(AccountPage));
     }
-
     private async void CarrotSeed_Tapped(object sender, TappedEventArgs e)
     {
         var result = await _gameService.BuySeedAsync(1);
+
+        await DisplayAlert(
+            result.Success ? "Success" : "Error",
+            result.Message,
+            "OK");
+    }
+
+    private async void CornSeed_Tapped(object sender, TappedEventArgs e)
+    {
+        var result = await _gameService.BuySeedAsync(2);
+
+        await DisplayAlert(
+            result.Success ? "Success" : "Error",
+            result.Message,
+            "OK");
+    }
+
+    private async void TomatoSeed_Tapped(object sender, TappedEventArgs e)
+    {
+        var result = await _gameService.BuySeedAsync(3);
+
+        await DisplayAlert(
+            result.Success ? "Success" : "Error",
+            result.Message,
+            "OK");
+    }
+
+    private async void PotatoSeed_Tapped(object sender, TappedEventArgs e)
+    {
+        var result = await _gameService.BuySeedAsync(4);
+
+        await DisplayAlert(
+            result.Success ? "Success" : "Error",
+            result.Message,
+            "OK");
+    }
+
+    private async void EggplantSeed_Tapped(object sender, TappedEventArgs e)
+    {
+        var result = await _gameService.BuySeedAsync(5);
+
+        await DisplayAlert(
+            result.Success ? "Success" : "Error",
+            result.Message,
+            "OK");
+    }
+
+    private async void PepperSeed_Tapped(object sender, TappedEventArgs e)
+    {
+        var result = await _gameService.BuySeedAsync(6);
 
         await DisplayAlert(
             result.Success ? "Success" : "Error",

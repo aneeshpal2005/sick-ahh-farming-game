@@ -23,7 +23,6 @@ namespace sick_ahh_farming_game.Services
             try
             {
                 if (_initialized) return;
-
                 var dbPath = Path.Combine(FileSystem.AppDataDirectory, "farming.db3");
                 _database = new SQLiteAsyncConnection(dbPath,
                     SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache);
@@ -66,8 +65,44 @@ namespace sick_ahh_farming_game.Services
                     Cost = 10,
                     SellValue = 20,
                     GrowthDurationSeconds = 60
+                },
+
+                new()
+                {
+                    Name = "Tomato",
+                    Emoji = "🍅",
+                    Cost = 15,
+                    SellValue = 30,
+                    GrowthDurationSeconds = 90
+                },
+
+                new()
+                {
+                    Name = "Potato",
+                    Emoji = "🥔",
+                    Cost = 20,
+                    SellValue = 40,
+                    GrowthDurationSeconds = 120
+                },
+
+                new()
+                {
+                    Name = "Eggplant",
+                    Emoji = "🍆",
+                    Cost = 25,
+                    SellValue = 50,
+                    GrowthDurationSeconds = 150
+                },
+
+                new()
+                {
+                    Name = "Pepper",
+                    Emoji = "🫑",
+                    Cost = 30,
+                    SellValue = 60,
+                    GrowthDurationSeconds = 180
                 }
-            };
+        };
 
             await _database.InsertAllAsync(seeds);
         }

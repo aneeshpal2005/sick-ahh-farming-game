@@ -41,6 +41,9 @@
                     Stroke="#8C6B4A"
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 15">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Seed_Clicked"/>
+                </Border.GestureRecognizers>
                 <VerticalStackLayout HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Spacing="5">

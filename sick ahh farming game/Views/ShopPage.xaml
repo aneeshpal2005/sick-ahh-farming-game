@@ -76,30 +76,21 @@
                     BackgroundColor="#F5E6B8"
                     Stroke="#8C6B4A"
                     StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
+                    StrokeShape="RoundRectangle 15">        
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CornSeed_Tapped" />
+                    </Border.GestureRecognizers>
 
                     <VerticalStackLayout Spacing="8">
-
-                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                        <Label
-                            Text="🌻"
-                            FontSize="45"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="Seed 2"
-                            FontSize="20"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="10 G"
-                            FontSize="16"
-                            HorizontalOptions="Center" />
-
+                        <Label Text="🌽" FontSize="45" HorizontalOptions="Center" />
+                        <Label Text="Corn" FontSize="20" HorizontalOptions="Center" />
+                        <Label Text="10 G" FontSize="16" HorizontalOptions="Center" />
                     </VerticalStackLayout>
 
                 </Border>
 
+                <!-- Tomato -->
                 <Border
                     Grid.Row="1"
                     Grid.Column="0"
@@ -109,28 +100,19 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 15">
 
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TomatoSeed_Tapped" />
+                    </Border.GestureRecognizers>
+
                     <VerticalStackLayout Spacing="8">
-
-                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                        <Label
-                            Text="🌷"
-                            FontSize="45"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="Seed 3"
-                            FontSize="20"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="15 G"
-                            FontSize="16"
-                            HorizontalOptions="Center" />
-
+                        <Label Text="🍅" FontSize="45" HorizontalOptions="Center" />
+                        <Label Text="Tomato" FontSize="20" HorizontalOptions="Center" />
+                        <Label Text="15 G" FontSize="16" HorizontalOptions="Center" />
                     </VerticalStackLayout>
 
                 </Border>
 
+                <!-- Potato -->
                 <Border
                     Grid.Row="1"
                     Grid.Column="1"
@@ -140,28 +122,19 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 15">
 
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PotatoSeed_Tapped" />
+                    </Border.GestureRecognizers>
+
                     <VerticalStackLayout Spacing="8">
-
-                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                        <Label
-                            Text="🌾"
-                            FontSize="45"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="Seed 4"
-                            FontSize="20"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="20 G"
-                            FontSize="16"
-                            HorizontalOptions="Center" />
-
+                        <Label Text="🥔" FontSize="45" HorizontalOptions="Center" />
+                        <Label Text="Potato" FontSize="20" HorizontalOptions="Center" />
+                        <Label Text="20 G" FontSize="16" HorizontalOptions="Center" />
                     </VerticalStackLayout>
 
                 </Border>
 
+                <!-- Eggplant -->
                 <Border
                     Grid.Row="2"
                     Grid.Column="0"
@@ -171,28 +144,19 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 15">
 
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EggplantSeed_Tapped" />
+                    </Border.GestureRecognizers>
+
                     <VerticalStackLayout Spacing="8">
-
-                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                        <Label
-                            Text="🌼"
-                            FontSize="45"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="Seed 5"
-                            FontSize="20"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="25 G"
-                            FontSize="16"
-                            HorizontalOptions="Center" />
-
+                        <Label Text="🍆" FontSize="45" HorizontalOptions="Center" />
+                        <Label Text="Eggplant" FontSize="20" HorizontalOptions="Center" />
+                        <Label Text="25 G" FontSize="16" HorizontalOptions="Center" />
                     </VerticalStackLayout>
 
                 </Border>
 
+                <!-- Pepper -->
                 <Border
                     Grid.Row="2"
                     Grid.Column="1"
@@ -202,24 +166,14 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 15">
 
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PepperSeed_Tapped" />
+                    </Border.GestureRecognizers>
+
                     <VerticalStackLayout Spacing="8">
-
-                        <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                        <Label
-                            Text="🌿"
-                            FontSize="45"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="Seed 6"
-                            FontSize="20"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="30 G"
-                            FontSize="16"
-                            HorizontalOptions="Center" />
-
+                        <Label Text="🫑" FontSize="45" HorizontalOptions="Center" />
+                        <Label Text="Pepper" FontSize="20" HorizontalOptions="Center" />
+                        <Label Text="30 G" FontSize="16" HorizontalOptions="Center" />
                     </VerticalStackLayout>
 
                 </Border>
