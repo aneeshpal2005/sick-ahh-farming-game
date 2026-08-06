@@ -1,183 +1,79 @@
-
-
-using sick_ahh_farming_game.Models;
+﻿using sick_ahh_farming_game.Models;
 using sick_ahh_farming_game.Services;
+using System.Collections.ObjectModel;
 
 namespace sick_ahh_farming_game;
 
 public partial class InventoryPage : ContentPage
 {
     private readonly GameService _gameService = GameManager.GameService;
-    private List<InventoryItem> _inventory = new();
+    public ObservableCollection<InventoryDisplayItem> DisplayInventory { get; set; } = new();
 
     public InventoryPage()
     {
         InitializeComponent();
+        InventoryCollectionView.ItemsSource = DisplayInventory;
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        await LoadInventory();
+        await LoadInventoryAsync();
     }
 
-    private async Task LoadInventory()
+    private async Task LoadInventoryAsync()
     {
-        _inventory = await _gameService.GetInventoryAsync();
+        var rawInventory = await _gameService.GetInventoryAsync();
+        DisplayInventory.Clear();
 
-        ClearSlots();
-
-        if (_inventory.Count > 0)
+        foreach (var item in rawInventory)
         {
-            Slot1Emoji.Text = _inventory[0].Seed?.Emoji;
-            Slot1Name.Text = _inventory[0].Seed?.Name;
-            Slot1Quantity.Text = $"x{_inventory[0].Quantity}";
-        }
-
-        if (_inventory.Count > 1)
-        {
-            Slot2Emoji.Text = _inventory[1].Seed?.Emoji;
-            Slot2Name.Text = _inventory[1].Seed?.Name;
-            Slot2Quantity.Text = $"x{_inventory[1].Quantity}";
-        }
-
-        if (_inventory.Count > 2)
-        {
-            Slot3Emoji.Text = _inventory[2].Seed?.Emoji;
-            Slot3Name.Text = _inventory[2].Seed?.Name;
-            Slot3Quantity.Text = $"x{_inventory[2].Quantity}";
-        }
-
-        if (_inventory.Count > 3)
-        {
-            Slot4Emoji.Text = _inventory[3].Seed?.Emoji;
-            Slot4Name.Text = _inventory[3].Seed?.Name;
-            Slot4Quantity.Text = $"x{_inventory[3].Quantity}";
-        }
-
-        if (_inventory.Count > 4)
-        {
-            Slot5Emoji.Text = _inventory[4].Seed?.Emoji;
-            Slot5Name.Text = _inventory[4].Seed?.Name;
-            Slot5Quantity.Text = $"x{_inventory[4].Quantity}";
-        }
-
-        if (_inventory.Count > 5)
-        {
-            Slot6Emoji.Text = _inventory[5].Seed?.Emoji;
-            Slot6Name.Text = _inventory[5].Seed?.Name;
-            Slot6Quantity.Text = $"x{_inventory[5].Quantity}";
-        }
-
-        if (_inventory.Count > 6)
-        {
-            Slot7Emoji.Text = _inventory[6].Seed?.Emoji;
-            Slot7Name.Text = _inventory[6].Seed?.Name;
-            Slot7Quantity.Text = $"x{_inventory[6].Quantity}";
-        }
-
-        if (_inventory.Count > 7)
-        {
-            Slot8Emoji.Text = _inventory[7].Seed?.Emoji;
-            Slot8Name.Text = _inventory[7].Seed?.Name;
-            Slot8Quantity.Text = $"x{_inventory[7].Quantity}";
-        }
-
-        if (_inventory.Count > 8)
-        {
-            Slot9Emoji.Text = _inventory[8].Seed?.Emoji;
-            Slot9Name.Text = _inventory[8].Seed?.Name;
-            Slot9Quantity.Text = $"x{_inventory[8].Quantity}";
+            if (item.Quantity > 0)
+            {
+                DisplayInventory.Add(new InventoryDisplayItem
+                {
+                    SeedId = item.SeedId,
+                    Seed = item.Seed,
+                    Quantity = item.Quantity,
+                    // Cap display bubble at 99 max
+                    DisplayQuantity = item.Quantity > 99 ? "99+" : item.Quantity.ToString()
+                });
+            }
         }
     }
-    
 
-    private void ClearSlots()
+    private async void InventoryCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Slot1Emoji.Text = "";
-        Slot1Name.Text = "";
-        Slot1Quantity.Text = "";
-
-        Slot2Emoji.Text = "";
-        Slot2Name.Text = "";
-        Slot2Quantity.Text = "";
-
-        Slot3Emoji.Text = "";
-        Slot3Name.Text = "";
-        Slot3Quantity.Text = "";
-
-        Slot4Emoji.Text = "";
-        Slot4Name.Text = "";
-        Slot4Quantity.Text = "";
-
-        Slot5Emoji.Text = "";
-        Slot5Name.Text = "";
-        Slot5Quantity.Text = "";
-
-        Slot6Emoji.Text = "";
-        Slot6Name.Text = "";
-        Slot6Quantity.Text = "";
-
-        Slot7Emoji.Text = "";
-        Slot7Name.Text = "";
-        Slot7Quantity.Text = "";
-
-        Slot8Emoji.Text = "";
-        Slot8Name.Text = "";
-        Slot8Quantity.Text = "";
-
-        Slot9Emoji.Text = "";
-        Slot9Name.Text = "";
-        Slot9Quantity.Text = "";
-    }
-
-    private async void FarmButton_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//MainPage");
-    }
-
-    private async void InventoryButton_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(InventoryPage));
-    }
-
-    private async void ShopButton_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(ShopPage));
-    }
-
-    private async void AccountButton_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(AccountPage));
-    }
-
-    private async void Seed_Clicked(object sender, EventArgs e)
-    {
-        if (_inventory.Count == 0)
-        {
-            await DisplayAlert("Error", "You don't have any seeds.", "OK");
+        if (e.CurrentSelection.FirstOrDefault() is not InventoryDisplayItem selectedItem)
             return;
-        }
 
-        var selectedSeed = _inventory[0];
+        // Deselect item immediately so it can be clicked again
+        InventoryCollectionView.SelectedItem = null;
 
-        bool planted = await _gameService.PlantSeedAsync(
-            _gameService.SelectedPlotId,
-            selectedSeed.SeedId);
+        bool planted = await _gameService.PlantSeedAsync(_gameService.SelectedPlotId, selectedItem.SeedId);
 
         if (planted)
         {
-            await DisplayAlert("Success",
-                $"{selectedSeed.Seed?.Name} planted!",
-                "OK");
-
+            await DisplayAlert("Success", $"{selectedItem.Seed?.Name} planted! 🌱", "OK");
             await Shell.Current.GoToAsync("//MainPage");
         }
         else
         {
-            await DisplayAlert("Error",
-                "Unable to plant seed.",
-                "OK");
+            await DisplayAlert("Farm", "No plot selected or unable to plant here.", "OK");
         }
     }
+
+    private async void FarmButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync("//MainPage");
+    private async void InventoryButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync(nameof(InventoryPage));
+    private async void ShopButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync(nameof(ShopPage));
+    private async void AccountButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync(nameof(AccountPage));
+}
+
+// Helper wrapper class for UI display formatting 🤢
+public class InventoryDisplayItem
+{
+    public int SeedId { get; set; }
+    public Seed? Seed { get; set; }
+    public int Quantity { get; set; }
+    public string DisplayQuantity { get; set; } = "0";
 }

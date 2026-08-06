@@ -12,8 +12,12 @@ namespace sick_ahh_farming_game.Models
         [PrimaryKey]
         public int Id { get; set; } = 1;
 
+        public string Username { get; set; } = "Player";
+
         public int Coins { get; set; }
 
         public int PlantsHarvested { get; set; }
+
+        public int TotalMoneyMade { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,225 +8,115 @@
 
     <Grid RowDefinitions="Auto,*,Auto">
 
-        <Label
-            Grid.Row="0"
-            Text="Seed Shop"
-            FontSize="32"
-            FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Margin="0,20,0,10" />
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="20,15,20,5">
+            <Label
+                Text="Seed Shop"
+                FontSize="32"
+                FontAttributes="Bold"
+                TextColor="#5C3B32"
+                VerticalOptions="Center" />
+            <Label
+                x:Name="CoinsLabel"
+                Grid.Column="1"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#5C3B32"
+                VerticalOptions="Center" />
+        </Grid>
 
         <ScrollView Grid.Row="1">
-
-            <Grid
-                Padding="25"
-                RowSpacing="15"
-                ColumnSpacing="15">
-
+            <Grid Padding="25" RowSpacing="15" ColumnSpacing="15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Border
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="15"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-
-                    <Border.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="CarrotSeed_Tapped"/>
-                    </Border.GestureRecognizers>
-
-                    <VerticalStackLayout Spacing="8">
-
-                                <Label
-                    Text="🥕"
-                    FontSize="45"
-                    HorizontalOptions="Center" />
-
-                                <Label
-                    Text="Carrot"
-                    FontSize="20"
-                    HorizontalOptions="Center" />
-
-                    <Label
-                    Text="5 G"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
-
+                <Border Grid.Row="0" Grid.Column="0" Padding="12" BackgroundColor="#F5E6B8" Stroke="#8C6B4A" StrokeThickness="2" StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🥕" FontSize="40" HorizontalOptions="Center" />
+                        <Label Text="Carrot (5 G)" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#5C3B32" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+                            <Button Grid.Column="0" Text="Buy 1" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyCarrot1_Clicked"/>
+                            <Button Grid.Column="1" Text="Buy 5" FontSize="12" BackgroundColor="#5C3B32" TextColor="White" Clicked="BuyCarrot5_Clicked"/>
+                        </Grid>
                     </VerticalStackLayout>
-
                 </Border>
 
-                <Border
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Padding="15"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">        
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="CornSeed_Tapped" />
-                    </Border.GestureRecognizers>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="🌽" FontSize="45" HorizontalOptions="Center" />
-                        <Label Text="Corn" FontSize="20" HorizontalOptions="Center" />
-                        <Label Text="10 G" FontSize="16" HorizontalOptions="Center" />
+                <Border Grid.Row="0" Grid.Column="1" Padding="12" BackgroundColor="#F5E6B8" Stroke="#8C6B4A" StrokeThickness="2" StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🌽" FontSize="40" HorizontalOptions="Center" />
+                        <Label Text="Corn (10 G)" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#5C3B32" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+                            <Button Grid.Column="0" Text="Buy 1" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyCorn1_Clicked"/>
+                            <Button Grid.Column="1" Text="Buy 5" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyCorn5_Clicked"/>
+                        </Grid>
                     </VerticalStackLayout>
-
                 </Border>
 
-                <!-- Tomato -->
-                <Border
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Padding="15"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TomatoSeed_Tapped" />
-                    </Border.GestureRecognizers>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="🍅" FontSize="45" HorizontalOptions="Center" />
-                        <Label Text="Tomato" FontSize="20" HorizontalOptions="Center" />
-                        <Label Text="15 G" FontSize="16" HorizontalOptions="Center" />
+                <Border Grid.Row="1" Grid.Column="0" Padding="12" BackgroundColor="#F5E6B8" Stroke="#8C6B4A" StrokeThickness="2" StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🍅" FontSize="40" HorizontalOptions="Center" />
+                        <Label Text="Tomato (15 G)" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#5C3B32" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+                            <Button Grid.Column="0" Text="Buy 1" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyTomato1_Clicked"/>
+                            <Button Grid.Column="1" Text="Buy 5" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyTomato5_Clicked"/>
+                        </Grid>
                     </VerticalStackLayout>
-
                 </Border>
 
-                <!-- Potato -->
-                <Border
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Padding="15"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="PotatoSeed_Tapped" />
-                    </Border.GestureRecognizers>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="🥔" FontSize="45" HorizontalOptions="Center" />
-                        <Label Text="Potato" FontSize="20" HorizontalOptions="Center" />
-                        <Label Text="20 G" FontSize="16" HorizontalOptions="Center" />
+                <Border Grid.Row="1" Grid.Column="1" Padding="12" BackgroundColor="#F5E6B8" Stroke="#8C6B4A" StrokeThickness="2" StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🥔" FontSize="40" HorizontalOptions="Center" />
+                        <Label Text="Potato (20 G)" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#5C3B32" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+                            <Button Grid.Column="0" Text="Buy 1" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyPotato1_Clicked"/>
+                            <Button Grid.Column="1" Text="Buy 5" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyPotato5_Clicked"/>
+                        </Grid>
                     </VerticalStackLayout>
-
                 </Border>
 
-                <!-- Eggplant -->
-                <Border
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Padding="15"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="EggplantSeed_Tapped" />
-                    </Border.GestureRecognizers>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="🍆" FontSize="45" HorizontalOptions="Center" />
-                        <Label Text="Eggplant" FontSize="20" HorizontalOptions="Center" />
-                        <Label Text="25 G" FontSize="16" HorizontalOptions="Center" />
+                <Border Grid.Row="2" Grid.Column="0" Padding="12" BackgroundColor="#F5E6B8" Stroke="#8C6B4A" StrokeThickness="2" StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🍆" FontSize="40" HorizontalOptions="Center" />
+                        <Label Text="Eggplant (25 G)" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#5C3B32" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+                            <Button Grid.Column="0" Text="Buy 1" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyEggplant1_Clicked"/>
+                            <Button Grid.Column="1" Text="Buy 5" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyEggplant5_Clicked"/>
+                        </Grid>
                     </VerticalStackLayout>
-
                 </Border>
 
-                <!-- Pepper -->
-                <Border
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Padding="15"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="PepperSeed_Tapped" />
-                    </Border.GestureRecognizers>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="🫑" FontSize="45" HorizontalOptions="Center" />
-                        <Label Text="Pepper" FontSize="20" HorizontalOptions="Center" />
-                        <Label Text="30 G" FontSize="16" HorizontalOptions="Center" />
+                <Border Grid.Row="2" Grid.Column="1" Padding="12" BackgroundColor="#F5E6B8" Stroke="#8C6B4A" StrokeThickness="2" StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🫑" FontSize="40" HorizontalOptions="Center" />
+                        <Label Text="Pepper (30 G)" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#5C3B32" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+                            <Button Grid.Column="0" Text="Buy 1" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyPepper1_Clicked"/>
+                            <Button Grid.Column="1" Text="Buy 5" FontSize="12" BackgroundColor="#8C6B4A" TextColor="White" Clicked="BuyPepper5_Clicked"/>
+                        </Grid>
                     </VerticalStackLayout>
-
                 </Border>
 
             </Grid>
-
         </ScrollView>
 
-        <Border
-            Grid.Row="2"
-            BackgroundColor="#F5F0E8"
-            Stroke="#5C3B32"
-            StrokeThickness="2"
-            Padding="8">
-
+        <Border Grid.Row="2" BackgroundColor="#F5F0E8" Stroke="#5C3B32" StrokeThickness="2" Padding="8">
             <Grid ColumnDefinitions="*,*,*,*">
+                <Button Grid.Column="0" Text="🌱" FontSize="28" BackgroundColor="Transparent" Clicked="FarmButton_Clicked" />
+                <Button Grid.Column="1" Text="🎒" FontSize="28" BackgroundColor="Transparent" Clicked="InventoryButton_Clicked" />
 
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="0"
-                    Text="🌱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="FarmButton_Clicked" />
+                <Border Grid.Column="2" BackgroundColor="#E6D7C3" Stroke="#C2B29F" StrokeThickness="1" StrokeShape="RoundRectangle 12" Margin="2">
+                    <Button Text="🌾" FontSize="26" BackgroundColor="Transparent" Clicked="ShopButton_Clicked" />
+                </Border>
 
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="1"
-                    Text="🌾"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="InventoryButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="2"
-                    Text="🎒"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="ShopButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="3"
-                    Text="🐱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="AccountButton_Clicked" />
-
+                <Button Grid.Column="3" Text="🐱" FontSize="28" BackgroundColor="Transparent" Clicked="AccountButton_Clicked" />
             </Grid>
-
-
         </Border>
 
     </Grid>
-
 </ContentPage>

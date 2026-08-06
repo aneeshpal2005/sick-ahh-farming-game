@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,12 +9,10 @@
     <Grid RowDefinitions="*,Auto">
 
         <ScrollView Grid.Row="0">
-
             <VerticalStackLayout
                 Padding="30"
                 Spacing="20">
 
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
                 <Label
                     Text="🐱"
                     FontSize="90"
@@ -25,6 +22,7 @@
                     Text="Player Account"
                     FontSize="32"
                     FontAttributes="Bold"
+                    TextColor="#5C3B32"
                     HorizontalOptions="Center" />
 
                 <Border
@@ -33,20 +31,26 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 18"
                     Padding="20">
-
-                    <VerticalStackLayout Spacing="12">
-
+                    <VerticalStackLayout Spacing="10">
                         <Label
                             Text="Username"
                             FontSize="16"
-                            FontAttributes="Bold" />
-
-                        <Label
-                            Text="Player"
-                            FontSize="20" />
-
+                            FontAttributes="Bold"
+                            TextColor="#5C3B32" />
+                        <Entry
+                            x:Name="UsernameEntry"
+                            Placeholder="Enter your username..."
+                            FontSize="18"
+                            TextColor="#5C3B32"
+                            BackgroundColor="Transparent" />
+                        <Button
+                            Text="Save Username"
+                            BackgroundColor="#8C6B4A"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="40"
+                            Clicked="SaveUsernameButton_Clicked" />
                     </VerticalStackLayout>
-
                 </Border>
 
                 <Border
@@ -55,31 +59,33 @@
                     StrokeThickness="2"
                     StrokeShape="RoundRectangle 18"
                     Padding="20">
-
                     <VerticalStackLayout Spacing="12">
-
                         <Label
                             Text="Farm Stats"
                             FontSize="20"
-                            FontAttributes="Bold" />
-
+                            FontAttributes="Bold"
+                            TextColor="#5C3B32" />
                         <Label
                             x:Name="HarvestedLabel"
                             Text="Plants Harvested: 0"
-                            FontSize="16" />
-
-                                                <Label
+                            FontSize="16"
+                            TextColor="#5C3B32" />
+                        <Label
                             x:Name="SeedsLabel"
                             Text="Seeds Owned: 0"
-                            FontSize="16" />
-
-                                                <Label
+                            FontSize="16"
+                            TextColor="#5C3B32" />
+                        <Label
+                            x:Name="MoneyMadeLabel"
+                            Text="Total Money Made: 0 G"
+                            FontSize="16"
+                            TextColor="#5C3B32" />
+                        <Label
                             x:Name="CoinsLabel"
-                            Text="Coins: 0"
-                            FontSize="16" />
-
+                            Text="Current Coins: 0 G"
+                            FontSize="16"
+                            TextColor="#5C3B32" />
                     </VerticalStackLayout>
-
                 </Border>
 
                 <Button
@@ -87,10 +93,18 @@
                     BackgroundColor="#8C6B4A"
                     TextColor="White"
                     CornerRadius="15"
-                    HeightRequest="50" />
+                    HeightRequest="50"
+                    Clicked="SaveGameButton_Clicked" />
+
+                <Button
+                    Text="Delete Account &amp; Reset Game"
+                    BackgroundColor="#B33939"
+                    TextColor="White"
+                    CornerRadius="15"
+                    HeightRequest="50"
+                    Clicked="DeleteAccountButton_Clicked" />
 
             </VerticalStackLayout>
-
         </ScrollView>
 
         <Border
@@ -99,45 +113,16 @@
             Stroke="#5C3B32"
             StrokeThickness="2"
             Padding="8">
-
             <Grid ColumnDefinitions="*,*,*,*">
+                <Button Grid.Column="0" Text="🌱" FontSize="28" BackgroundColor="Transparent" Clicked="FarmButton_Clicked" />
+                <Button Grid.Column="1" Text="🎒" FontSize="28" BackgroundColor="Transparent" Clicked="InventoryButton_Clicked" />
+                <Button Grid.Column="2" Text="🌾" FontSize="28" BackgroundColor="Transparent" Clicked="ShopButton_Clicked" />
 
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="0"
-                    Text="🌱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="FarmButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="1"
-                    Text="🌾"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="InventoryButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="2"
-                    Text="🎒"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="ShopButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="3"
-                    Text="🐱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="AccountButton_Clicked" />
-
+                <Border Grid.Column="3" BackgroundColor="#E6D7C3" Stroke="#C2B29F" StrokeThickness="1" StrokeShape="RoundRectangle 12" Margin="2">
+                    <Button Text="🐱" FontSize="26" BackgroundColor="Transparent" Clicked="AccountButton_Clicked" />
+                </Border>
             </Grid>
-
         </Border>
 
     </Grid>
-
 </ContentPage>

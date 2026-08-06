@@ -1,43 +1,57 @@
 ﻿using sick_ahh_farming_game.Services;
-using System.Timers;
-using Timer = System.Timers.Timer;
 
 namespace sick_ahh_farming_game;
 
 public partial class MainPage : ContentPage
 {
-    // Call the game service
     private readonly GameService _gameService = GameManager.GameService;
-    
-    //Duplicate and change name and time for each plant (milliseconds)
-    Timer plantName = new Timer(30000);
+
     public MainPage()
     {
         InitializeComponent();
     }
 
-    //Called when plot gets planted
-    //Name subject to change
-    //Pass a variable
-    public void plotTimer(int plotId)
+    protected override async void OnAppearing()
     {
-        //if-else statement, checks for which timer to start based on plotId
-        //Triggers function when time ends
-        plantName.Elapsed += fullyGrownPlant;
-        plantName.AutoReset = false;
-        plantName.Start();
+        base.OnAppearing();
+        await RefreshUIAsync();
     }
 
-    private void fullyGrownPlant(object? sender, ElapsedEventArgs e)
+    private async Task RefreshUIAsync()
     {
-        throw new NotImplementedException();
-    }
+        // Update player gold display
+        var player = await _gameService.GetPlayerAsync();
+        CoinsLabel.Text = $"💰 {player.Coins} G";
 
-    //When plant grows, it changes image to grown
-    //Possibly receives a passed value for the plot
-    public void fullyGrownPlant()
-    {
-
+        // Update plot buttons visual states for all 12 plots
+        var plots = await _gameService.GetPlotsAsync();
+        foreach (var plot in plots)
+        {
+            var button = FindByName($"Plot{plot.Id}") as Button;
+            if (button != null)
+            {
+                if (!plot.SeedId.HasValue)
+                {
+                    button.Text = ""; // Empty plot
+                }
+                else if (!plot.IsWatered)
+                {
+                    button.Text = $"{plot.Seed?.Emoji ?? "🌱"} 💧"; // Thirsty crop
+                }
+                else
+                {
+                    var check = await _gameService.CheckPlotAsync(plot.Id);
+                    if (check.CanHarvest)
+                    {
+                        button.Text = $"{plot.Seed?.Emoji ?? "🌱"} ✨"; // Ready to harvest
+                    }
+                    else
+                    {
+                        button.Text = $"{plot.Seed?.Emoji ?? "🌱"} ⏳"; // Growing
+                    }
+                }
+            }
+        }
     }
 
     private async void FarmButton_Clicked(object sender, EventArgs e)
@@ -72,18 +86,30 @@ public partial class MainPage : ContentPage
             _gameService.SelectedPlotId = plotId;
             await Shell.Current.GoToAsync(nameof(InventoryPage));
         }
+        else if (!result.CanHarvest && result.Message.Contains("thirsty"))
+        {
+            // Smooth watering animation sequence without popup interruptions: 🪣 -> 💧
+            button.Text = "🪣";
+            await Task.Delay(200);
+            button.Text = "💧";
+            await Task.Delay(200);
+
+            await _gameService.WaterPlotAsync(plotId);
+            await RefreshUIAsync();
+        }
         else if (result.CanHarvest)
         {
             var harvestResult = await _gameService.HarvestPlotAsync(plotId);
-
             await DisplayAlert(
                 harvestResult.Success ? "Harvest" : "Farm",
                 harvestResult.Message,
                 "OK");
+            await RefreshUIAsync();
         }
         else
         {
             await DisplayAlert("Farm", result.Message, "OK");
+            await RefreshUIAsync();
         }
     }
 }

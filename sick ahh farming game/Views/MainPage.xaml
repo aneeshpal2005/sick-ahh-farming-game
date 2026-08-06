@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,15 +6,10 @@
     Shell.NavBarIsVisible="False"
     BackgroundColor="#FFD447">
 
-    <Grid RowDefinitions="Auto,Auto,*,Auto">
+    <Grid RowDefinitions="Auto,*,Auto">
 
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="20,10">
-            <Label
-                Text="Testing Farm"
-                FontSize="28"
-                FontAttributes="Bold"
-                TextColor="#5C3B32"
-                VerticalOptions="Center" />
+            <Label />
             <Label
                 x:Name="CoinsLabel"
                 Grid.Column="1"
@@ -25,28 +19,16 @@
                 VerticalOptions="Center" />
         </Grid>
 
-        <VerticalStackLayout Grid.Row="1" Spacing="5" Padding="20,0">
-            <Label
-                Text="Click a plot to interact with it."
-                FontSize="14"
-                TextColor="#5C3B32"
-                HorizontalOptions="Center" />
-            <HorizontalStackLayout
-                x:Name="SeedSelector"
-                Spacing="10"
-                HorizontalOptions="Center" />
-        </VerticalStackLayout>
-
-        <ScrollView Grid.Row="2">
+        <ScrollView Grid.Row="1">
             <Grid
                 Padding="25"
-                RowSpacing="18"
+                RowSpacing="15"
                 ColumnSpacing="15">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -54,173 +36,42 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Plot1"
-                        AutomationId="Plot1"
-                        Grid.Row="0" 
-                        Grid.Column="0" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot1" AutomationId="Plot1" Grid.Row="0" Grid.Column="0" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot2" AutomationId="Plot2" Grid.Row="0" Grid.Column="1" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot3" AutomationId="Plot3" Grid.Row="0" Grid.Column="2" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
 
-                <Button x:Name="Plot2"
-                        AutomationId="Plot2"
-                        Grid.Row="0" 
-                        Grid.Column="1" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot4" AutomationId="Plot4" Grid.Row="1" Grid.Column="0" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot5" AutomationId="Plot5" Grid.Row="1" Grid.Column="1" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot6" AutomationId="Plot6" Grid.Row="1" Grid.Column="2" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
 
-                <Button x:Name="Plot3"
-                        AutomationId="Plot3"
-                        Grid.Row="0" 
-                        Grid.Column="2" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
-                <Button x:Name="Plot4"
-                        AutomationId="Plot4"
-                        Grid.Row="1" 
-                        Grid.Column="0" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
-    
-                <Button x:Name="Plot5" 
-                        AutomationId="Plot5"
-                        Grid.Row="1" 
-                        Grid.Column="1" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                         Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot7" AutomationId="Plot7" Grid.Row="2" Grid.Column="0" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot8" AutomationId="Plot8" Grid.Row="2" Grid.Column="1" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot9" AutomationId="Plot9" Grid.Row="2" Grid.Column="2" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
 
-                <Button x:Name="Plot6"
-                        AutomationId="Plot6"
-                        Grid.Row="1" 
-                        Grid.Column="2" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24"
-                        Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot10" AutomationId="Plot10" Grid.Row="3" Grid.Column="0" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot11" AutomationId="Plot11" Grid.Row="3" Grid.Column="1" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
+                <Button x:Name="Plot12" AutomationId="Plot12" Grid.Row="3" Grid.Column="2" HeightRequest="85" Text="" BackgroundColor="#B86C3C" CornerRadius="20" FontSize="24" Clicked="PlotButton_Clicked"/>
 
-                <Button x:Name="Plot7"
-                        AutomationId="Plot7"
-                        Grid.Row="2" 
-                        Grid.Column="0" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24"
-                        Clicked="PlotButton_Clicked"/>
-                    
-                <Button x:Name="Plot8"
-                        AutomationId="Plot8"
-                        Grid.Row="2" 
-                        Grid.Column="1" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
-                
-                <Button x:Name="Plot9"
-                        AutomationId="Plot9"
-                        Grid.Row="2" 
-                        Grid.Column="2" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24"
-                        Clicked="PlotButton_Clicked"/>
-                
-                <Button x:Name="Plot10"
-                        AutomationId="Plot10"
-                        Grid.Row="3" 
-                        Grid.Column="0" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
-                
-                <Button x:Name="Plot11"
-                        AutomationId="Plot11"
-                        Grid.Row="3" 
-                        Grid.Column="1" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24" 
-                        Clicked="PlotButton_Clicked"/>
-                
-                <Button x:Name="Plot12" 
-                        AutomationId="Plot12"
-                        Grid.Row="3" 
-                        Grid.Column="2" 
-                        Text="" 
-                        BackgroundColor="#B86C3C" 
-                        CornerRadius="25" 
-                        FontSize="24"
-                        Clicked="PlotButton_Clicked"/>
-            
             </Grid>
         </ScrollView>
 
         <Border
-            Grid.Row="3"
+            Grid.Row="2"
             BackgroundColor="#F5F0E8"
             Stroke="#5C3B32"
             StrokeThickness="2"
             Padding="8">
 
             <Grid ColumnDefinitions="*,*,*,*">
+                <Border Grid.Column="0" BackgroundColor="#E6D7C3" Stroke="#C2B29F" StrokeThickness="1" StrokeShape="RoundRectangle 12" Margin="2">
+                    <Button Text="🌱" FontSize="26" BackgroundColor="Transparent" Clicked="FarmButton_Clicked" />
+                </Border>
 
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="0"
-                    Text="🌱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="FarmButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="1"
-                    Text="🌾"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="InventoryButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="2"
-                    Text="🎒"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="ShopButton_Clicked" />
-
-                <!-- # REPLACE WITH IMAGE EMOJI PLACE HOLDER -->
-                <Button
-                    Grid.Column="3"
-                    Text="🐱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="AccountButton_Clicked" />
-
+                <Button Grid.Column="1" Text="🎒" FontSize="28" BackgroundColor="Transparent" Clicked="InventoryButton_Clicked" />
+                <Button Grid.Column="2" Text="🌾" FontSize="28" BackgroundColor="Transparent" Clicked="ShopButton_Clicked" />
+                <Button Grid.Column="3" Text="🐱" FontSize="28" BackgroundColor="Transparent" Clicked="AccountButton_Clicked" />
             </Grid>
-
         </Border>
 
     </Grid>
-
 </ContentPage>

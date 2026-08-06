@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -11,211 +10,69 @@
 
         <Label
             Grid.Row="0"
-            Text="Inventory"
+            Text="Seed Bag"
             FontSize="32"
             FontAttributes="Bold"
+            TextColor="#5C3B32"
             HorizontalOptions="Center"
             Margin="0,20,0,10" />
 
-        <Grid
-            Grid.Row="1"
-            Padding="25"
-            RowSpacing="15"
-            ColumnSpacing="15">
+        <ScrollView Grid.Row="1">
+            <CollectionView
+                x:Name="InventoryCollectionView"
+                SelectionMode="Single"
+                SelectionChanged="InventoryCollectionView_SelectionChanged"
+                Margin="20">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3" VerticalItemSpacing="15" HorizontalItemSpacing="15" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            HeightRequest="90"
+                            BackgroundColor="#F5E6B8"
+                            Stroke="#8C6B4A"
+                            StrokeThickness="2"
+                            StrokeShape="RoundRectangle 15">
+                            <Grid>
+                                <Label
+                                    Text="{Binding Seed.Emoji}"
+                                    FontSize="40"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+                                <Frame
+                                    BackgroundColor="#8C6B4A"
+                                    Padding="5,2"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Start"
+                                    CornerRadius="8"
+                                    Margin="5">
+                                    <Label
+                                        Text="{Binding DisplayQuantity}"
+                                        TextColor="White"
+                                        FontSize="11"
+                                        FontAttributes="Bold" />
+                                </Frame>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <!-- Slot 1 -->
-            <Border Grid.Row="0" Grid.Column="0"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Seed_Clicked"/>
-                </Border.GestureRecognizers>
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot1Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot1Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot1Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 2 -->
-            <Border Grid.Row="0" Grid.Column="1"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot2Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot2Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot2Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 3 -->
-            <Border Grid.Row="0" Grid.Column="2"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot3Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot3Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot3Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 4 -->
-            <Border Grid.Row="1" Grid.Column="0"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot4Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot4Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot4Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 5 -->
-            <Border Grid.Row="1" Grid.Column="1"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot5Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot5Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot5Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 6 -->
-            <Border Grid.Row="1" Grid.Column="2"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot6Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot6Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot6Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 7 -->
-            <Border Grid.Row="2" Grid.Column="0"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot7Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot7Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot7Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 8 -->
-            <Border Grid.Row="2" Grid.Column="1"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot8Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot8Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot8Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Slot 9 -->
-            <Border Grid.Row="2" Grid.Column="2"
-                    BackgroundColor="#F5E6B8"
-                    Stroke="#8C6B4A"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 15">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Spacing="5">
-                    <Label x:Name="Slot9Emoji" FontSize="36" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot9Name" HorizontalOptions="Center"/>
-                    <Label x:Name="Slot9Quantity" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Border>
-
-        </Grid>
-
-        <Border
-            Grid.Row="2"
-            BackgroundColor="#F5F0E8"
-            Stroke="#5C3B32"
-            StrokeThickness="2"
-            Padding="8">
-
+        <Border Grid.Row="2" BackgroundColor="#F5F0E8" Stroke="#5C3B32" StrokeThickness="2" Padding="8">
             <Grid ColumnDefinitions="*,*,*,*">
+                <Button Grid.Column="0" Text="🌱" FontSize="28" BackgroundColor="Transparent" Clicked="FarmButton_Clicked" />
 
-                <Button
-                    Grid.Column="0"
-                    Text="🌱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="FarmButton_Clicked" />
+                <Border Grid.Column="1" BackgroundColor="#E6D7C3" Stroke="#C2B29F" StrokeThickness="1" StrokeShape="RoundRectangle 12" Margin="2">
+                    <Button Text="🎒" FontSize="26" BackgroundColor="Transparent" Clicked="InventoryButton_Clicked" />
+                </Border>
 
-                <Button
-                    Grid.Column="1"
-                    Text="🌾"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="InventoryButton_Clicked" />
-
-                <Button
-                    Grid.Column="2"
-                    Text="🎒"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="ShopButton_Clicked" />
-
-                <Button
-                    Grid.Column="3"
-                    Text="🐱"
-                    FontSize="28"
-                    BackgroundColor="Transparent"
-                    Clicked="AccountButton_Clicked" />
-
+                <Button Grid.Column="2" Text="🌾" FontSize="28" BackgroundColor="Transparent" Clicked="ShopButton_Clicked" />
+                <Button Grid.Column="3" Text="🐱" FontSize="28" BackgroundColor="Transparent" Clicked="AccountButton_Clicked" />
             </Grid>
-
         </Border>
 
     </Grid>
-
 </ContentPage>

@@ -1,5 +1,4 @@
-
-using sick_ahh_farming_game.Services;
+﻿using sick_ahh_farming_game.Services;
 
 namespace sick_ahh_farming_game;
 
@@ -12,82 +11,54 @@ public partial class ShopPage : ContentPage
         InitializeComponent();
     }
 
-    private async void FarmButton_Clicked(object sender, EventArgs e)
+    protected override async void OnAppearing()
     {
-        await Shell.Current.GoToAsync("//MainPage");
+        base.OnAppearing();
+        await UpdateGoldDisplayAsync();
     }
 
-    private async void InventoryButton_Clicked(object sender, EventArgs e)
+    private async Task UpdateGoldDisplayAsync()
     {
-        await Shell.Current.GoToAsync(nameof(InventoryPage));
+        var player = await _gameService.GetPlayerAsync();
+        CoinsLabel.Text = $"💰 {player.Coins} G";
     }
 
-    private async void ShopButton_Clicked(object sender, EventArgs e)
+    private async void FarmButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync("//MainPage");
+    private async void InventoryButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync(nameof(InventoryPage));
+    private async void ShopButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync(nameof(ShopPage));
+    private async void AccountButton_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync(nameof(AccountPage));
+
+    private async Task BuyAndRefreshAsync(int seedId, int qty)
     {
-        await Shell.Current.GoToAsync(nameof(ShopPage));
+        var result = await _gameService.BuySeedAsync(seedId, qty);
+        if (result.Success)
+        {
+            await UpdateGoldDisplayAsync(); // Updates gold instantly on screen!
+        }
+        await DisplayAlert(result.Success ? "Success" : "Error", result.Message, "OK");
     }
 
-    private async void AccountButton_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(AccountPage));
-    }
-    private async void CarrotSeed_Tapped(object sender, TappedEventArgs e)
-    {
-        var result = await _gameService.BuySeedAsync(1);
+    // Carrot (ID 1)
+    private async void BuyCarrot1_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(1, 1);
+    private async void BuyCarrot5_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(1, 5);
 
-        await DisplayAlert(
-            result.Success ? "Success" : "Error",
-            result.Message,
-            "OK");
-    }
+    // Corn (ID 2)
+    private async void BuyCorn1_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(2, 1);
+    private async void BuyCorn5_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(2, 5);
 
-    private async void CornSeed_Tapped(object sender, TappedEventArgs e)
-    {
-        var result = await _gameService.BuySeedAsync(2);
+    // Tomato (ID 3)
+    private async void BuyTomato1_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(3, 1);
+    private async void BuyTomato5_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(3, 5);
 
-        await DisplayAlert(
-            result.Success ? "Success" : "Error",
-            result.Message,
-            "OK");
-    }
+    // Potato (ID 4)
+    private async void BuyPotato1_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(4, 1);
+    private async void BuyPotato5_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(4, 5);
 
-    private async void TomatoSeed_Tapped(object sender, TappedEventArgs e)
-    {
-        var result = await _gameService.BuySeedAsync(3);
+    // Eggplant (ID 5)
+    private async void BuyEggplant1_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(5, 1);
+    private async void BuyEggplant5_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(5, 5);
 
-        await DisplayAlert(
-            result.Success ? "Success" : "Error",
-            result.Message,
-            "OK");
-    }
-
-    private async void PotatoSeed_Tapped(object sender, TappedEventArgs e)
-    {
-        var result = await _gameService.BuySeedAsync(4);
-
-        await DisplayAlert(
-            result.Success ? "Success" : "Error",
-            result.Message,
-            "OK");
-    }
-
-    private async void EggplantSeed_Tapped(object sender, TappedEventArgs e)
-    {
-        var result = await _gameService.BuySeedAsync(5);
-
-        await DisplayAlert(
-            result.Success ? "Success" : "Error",
-            result.Message,
-            "OK");
-    }
-
-    private async void PepperSeed_Tapped(object sender, TappedEventArgs e)
-    {
-        var result = await _gameService.BuySeedAsync(6);
-
-        await DisplayAlert(
-            result.Success ? "Success" : "Error",
-            result.Message,
-            "OK");
-    }
+    // Pepper (ID 6)
+    private async void BuyPepper1_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(6, 1);
+    private async void BuyPepper5_Clicked(object sender, EventArgs e) => await BuyAndRefreshAsync(6, 5);
 }

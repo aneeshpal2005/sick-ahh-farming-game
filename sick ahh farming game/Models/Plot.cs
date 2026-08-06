@@ -14,6 +14,10 @@ namespace sick_ahh_farming_game.Models
         public string Name { get; set; } = string.Empty;
         public int? SeedId { get; set; }
         public DateTime? PlantedTime { get; set; }
+
+        // Added to track the new watering state! still with lame emoji :3 
+        public bool IsWatered { get; set; }
+
         [Ignore]
         public Seed? Seed { get; set; }
     }
